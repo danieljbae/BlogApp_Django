@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from users import views as user_views
 
 # Parent Directory of Apps (use trailing slashes "/")
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/', include('blog.urls')),
-    # path('', include('blog.urls')), # use empty path, for localhost:8000 to direct to blog
+    path('register/', user_views.register, name='register'),
+    path('', include('blog.urls')),  # use empty path, for localhost:8000 to direct to blog
 ]
